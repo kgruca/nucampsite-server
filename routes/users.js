@@ -7,15 +7,11 @@ const router = express.Router();
 
 /* GET users listing. */
 router.get('/', authenticate.verifyUser, authenticate.verifyAdmin, function(req, res, next) {
-    User.find({}, function(err, users) {
-        var userMap = {};
-    
-        users.forEach(function(user) {
-          userMap[user._id] = user;
-        });
-    
-        res.send(userMap);  
-      });
+    User.find().then( users => {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(users);
+    }).catch( err => next(err));
 });
 
 router.post('/signup', (req, res) => {

@@ -29,9 +29,7 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(app.get('secPort'), () => {
-    console.log('Server listening on port', app.get('secPort'));
-});
+server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
@@ -50,7 +48,9 @@ const secureServer = https.createServer(options, app);
  * Listen on provided port, on all network interfaces.
  */
 
-secureServer.listen(port);
+secureServer.listen(app.get('secPort'), () => {
+    console.log('Server listening on port', app.get('secPort'));
+});
 secureServer.on('error', onError);
 secureServer.on('listening', onListening);
 

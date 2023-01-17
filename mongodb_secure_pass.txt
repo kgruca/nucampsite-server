@@ -1,0 +1,5 @@
+dZo0VJIbWjReYVzJ
+
+mongodb+srv://admin:dZo0VJIbWjReYVzJ@cluster0.e7kinmh.mongodb.net/?w=majority
+
+https://us-central1-nucampsite-server-kgruca.cloudfunctions.net/nucampsiteServer
